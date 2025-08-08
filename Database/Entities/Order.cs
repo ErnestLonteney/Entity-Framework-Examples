@@ -1,34 +1,38 @@
 ﻿
-using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Database.Entities
+namespace Database.Entities;
+
+[PrimaryKey(nameof(Id))]
+public class Order
 {
-    public class Order
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public Guid Id { get; private set; } // [id]
+
+    [Column(TypeName = "datetime")]
+    public DateTime Date { get; set; } // [date]
+
+    [ForeignKey(nameof(Manager))]
+    public Guid ManagerId { get; private set; } // [managerId]
+
+    // navigation property
+    public Manager Manager { get; set; } = null!; 
+
+    [ForeignKey(nameof(Customer))]
+    public int? CustomerId { get; private set; } // [customerId]
+
+    // navigation property
+    public Customer? Customer { get; set; } 
+
+    // navigation property
+    public List<OrderDetail> OrderDetailes { get; set; } = [];
+
+    // custom function to calculate the total sum of the order
+    public decimal? GetSum()
     {
-        [Key]
-        public int Id { get; set; } // id
+       var sum = OrderDetailes.Sum(od => od.Quantity * od.Product.Price);
 
-        [Column(TypeName = "datetime")]
-        public DateTime Date { get; set; } // date
-
-
-        public Guid ManagerId { get; set; } // managerId
-
-        public int? CustomerId { get; set; } // customerId
-
-        public Customer? Customer { get; set; } // customerId
-
-        public Manager Manager { get; set; } = null!; // managerId
-
-        public List<OrderDetail> OrderDetailes { get; set; } = [];
-
-
-        public decimal? GetSum()
-        {
-           var sum = OrderDetailes.Sum(od => od.Quantity * od.Product.Price);
-
-           return sum;
-        }
+       return sum;
     }
 }

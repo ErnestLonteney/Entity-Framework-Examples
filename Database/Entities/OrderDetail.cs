@@ -7,14 +7,18 @@ namespace Database.Entities;
 public class OrderDetail
 {
     [ForeignKey(nameof(Order))]
-    public int OrderId { get; set; }
+    public Guid OrderId { get; private set; }
 
     public ushort LineNumber { get; set; }
 
-    public Product Product { get; set; } = null!;
+    [ForeignKey(nameof(Product))]
+    public int ProductId { get; private set; }
 
-    public uint Quantity { get; set; }
+    public uint Quantity { get; set; } 
 
+    // NAVIGATION PROPERTIES 
     public Order Order { get; set; } = null!;
+
+    public Product Product { get; set; } = null!;
 
 }
