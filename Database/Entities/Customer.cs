@@ -15,8 +15,8 @@ public class Customer
     [MaxLength(200)]
     public string? Email { get; set; }
 
-    [MaxLength(15)]
-    [Column("ContactNumber", TypeName = "varchar(15)")] // varchar instead of nvarchar
+   [MaxLength(15)]
+   [Column("ContactNumber", TypeName = "varchar(15)")] // varchar instead of nvarchar
     public string? PhoneNumber { get; set; }
     
     public List<Order> Orders { get; set; } = [];

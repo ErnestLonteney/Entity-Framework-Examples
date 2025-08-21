@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Database.Entities;
 
+[Index(nameof(FirstName), nameof(LastName), IsUnique = false)]
 [Table("SuperUsers")]
 public  class Manager
 {
@@ -21,5 +23,9 @@ public  class Manager
     [MaxLength(15)]
     public string? Phone { get; set; }
 
+    public Address? Address { get; set; }
+
     public List<Order> Orders { get; set; } = [];
+
+    public List<Department> Departments { get; set; } = [];
 }

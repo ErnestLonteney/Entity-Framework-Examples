@@ -18,7 +18,7 @@ public class Product
     {      
     }
 
-   // [Key]
+    [Key]
     public int Id { get; private set;  } // [id]
 
     [MaxLength(200)]

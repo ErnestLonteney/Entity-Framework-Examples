@@ -56,6 +56,36 @@ namespace Client
 
             db.OrderDetailes.AddRange(orderDetails);
 
+
+            var dep1 = new Department
+            {
+                Name = "It"
+            };
+
+            var dep2 = new Department
+            {
+                Name = "QA"
+            };
+
+            var man1 = new Manager
+            {
+                FirstName = "Ben",
+                LastName = "Aflec",
+            };
+
+            var man2 = new Manager
+            {
+                FirstName = "Olha",
+                LastName = "Dovgan",
+            };
+
+
+
+            dep1.Managers.AddRange(man1, man2);
+            man2.Departments.Add(dep2);
+
+            db.Departments.AddRange(dep1, dep2);
+
             db.SaveChanges();
 
             Console.WriteLine(order.GetSum());
