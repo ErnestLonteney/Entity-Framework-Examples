@@ -11,6 +11,6 @@ namespace Database.Entities
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
 
-        public List<Manager> Managers { get; set; } = [];
+        public virtual List<Manager> Managers { get; set; } = [];
     }
 }

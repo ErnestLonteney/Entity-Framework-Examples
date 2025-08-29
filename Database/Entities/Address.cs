@@ -16,6 +16,6 @@ namespace Database.Entities
 
         public string Country { get; set; } = string.Empty;
 
-        public Manager Manager { get; set; } = null!;
+        public virtual Manager Manager { get; set; } = null!;
     }
 }

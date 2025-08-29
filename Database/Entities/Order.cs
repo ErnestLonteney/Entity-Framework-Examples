@@ -17,16 +17,16 @@ public class Order
     public Guid ManagerId { get; private set; } // [managerId]
 
     // navigation property
-    public Manager Manager { get; set; } = null!; 
+    public virtual Manager Manager { get; set; } = null!; 
 
     [ForeignKey(nameof(Customer))]
     public int? CustomerId { get; private set; } // [customerId]
 
     // navigation property
-    public Customer? Customer { get; set; } 
+    public virtual Customer? Customer { get; set; } 
 
     // navigation property
-    public List<OrderDetail> OrderDetailes { get; set; } = [];
+    public virtual List<OrderDetail> OrderDetailes { get; set; } = [];
 
     // custom function to calculate the total sum of the order
     public decimal? GetSum()

@@ -19,5 +19,5 @@ public class Customer
    [Column("ContactNumber", TypeName = "varchar(15)")] // varchar instead of nvarchar
     public string? PhoneNumber { get; set; }
     
-    public List<Order> Orders { get; set; } = [];
+    public virtual List<Order> Orders { get; set; } = [];
 }

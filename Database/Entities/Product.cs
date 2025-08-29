@@ -31,5 +31,5 @@ public class Product
 	public decimal RawPrice { get; set; } // [rawPrice]
 
 	// Navigation property for the order details
-	public List<OrderDetail> OrderDetailes { get; set; } = []; 
+	public virtual List<OrderDetail> OrderDetailes { get; set; } = []; 
 }

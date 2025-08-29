@@ -23,9 +23,9 @@ public  class Manager
     [MaxLength(15)]
     public string? Phone { get; set; }
 
-    public Address? Address { get; set; }
+    public virtual Address? Address { get; set; }
 
-    public List<Order> Orders { get; set; } = [];
+    public virtual List<Order> Orders { get; set; } = [];
 
-    public List<Department> Departments { get; set; } = [];
+    public virtual List<Department> Departments { get; set; } = [];
 }

@@ -17,8 +17,8 @@ public class OrderDetail
     public uint Quantity { get; set; } 
 
     // NAVIGATION PROPERTIES 
-    public Order Order { get; set; } = null!;
+    public virtual Order Order { get; set; } = null!;
 
-    public Product Product { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 
 }
