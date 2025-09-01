@@ -5,7 +5,7 @@ namespace Database.Entities
 {
     public class Address
     {
-        [Key, ForeignKey(nameof(Manager))]
+       // [Key, ForeignKey(nameof(Person))]
         public Guid PersonId { get; set; }
 
         public string Street { get; set; } = string.Empty;
@@ -16,6 +16,6 @@ namespace Database.Entities
 
         public string Country { get; set; } = string.Empty;
 
-        public virtual Manager Manager { get; set; } = null!;
+        public virtual Person Person { get; set; } = null!;
     }
 }

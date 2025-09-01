@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Database.Entities;
 
-[Index(nameof(Name), IsUnique = true)]
-[PrimaryKey(nameof(Id))]
+ // [Index(nameof(Name), IsUnique = true)]
+// [PrimaryKey(nameof(Id))]
 public class Product
 {
     public Product(string name, decimal price)
@@ -18,10 +18,9 @@ public class Product
     {      
     }
 
-    [Key]
     public int Id { get; private set;  } // [id]
 
-    [MaxLength(200)]
+   // [MaxLength(200)]
     public string Name { get; set; } = string.Empty; // [name]
 
     public string? Description { get; set; } // [description]
@@ -31,5 +30,5 @@ public class Product
 	public decimal RawPrice { get; set; } // [rawPrice]
 
 	// Navigation property for the order details
-	public virtual List<OrderDetail> OrderDetailes { get; set; } = []; 
+	public virtual List<OrderDetail> OrderDetails { get; set; } = []; 
 }
