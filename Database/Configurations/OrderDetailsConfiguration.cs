@@ -9,9 +9,9 @@ namespace Database.Configurations
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
             builder.HasKey(od => new { od.OrderId, od.LineNumber }).HasName("PK_Id_LineNumber");
-            builder.Property(od => od.LineNumber).ValueGeneratedOnAdd().HasDefaultValue(1);
+           // builder.Property(od => od.LineNumber).HasDefaultValue(1);
             builder.HasOne(od => od.Order).WithMany(o => o.OrderDetails).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(od => od.Product).WithMany(p => p.OrderDetails).OnDelete(DeleteBehavior.NoAction);    
+            builder.HasOne(od => od.Product).WithMany(p => p.OrderDetails).OnDelete(DeleteBehavior.NoAction);
             builder.Property(od => od.Quantity).HasDefaultValue(1);
         }
     }

@@ -6,7 +6,7 @@ namespace Database.Entities;
 public class Order
 {
   //  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Id { get; private set; } // [id]
+    public Guid Id { get; set; } // [id]
 
    // [Column(TypeName = "datetime")]
     public DateTime Date { get; set; } // [date]

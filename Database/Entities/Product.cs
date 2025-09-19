@@ -1,8 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-
-namespace Database.Entities;
+﻿namespace Database.Entities;
 
  // [Index(nameof(Name), IsUnique = true)]
 // [PrimaryKey(nameof(Id))]
@@ -27,8 +23,6 @@ public class Product
    
     public decimal? Price { get; set; } // [price]
 
-	public decimal RawPrice { get; set; } // [rawPrice]
-
 	// Navigation property for the order details
-	public virtual List<OrderDetail> OrderDetails { get; set; } = []; 
+	public virtual List<OrderDetail>? OrderDetails { get; set; } = []; 
 }

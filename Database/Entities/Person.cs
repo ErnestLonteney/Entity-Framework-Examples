@@ -21,4 +21,6 @@ public class Person
     public string? Phone { get; set; }
 
     public virtual Address? Address { get; set; }
+
+    public DateOnly DateOfBirth { get; set; }
 }

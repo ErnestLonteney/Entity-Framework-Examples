@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Database.Entities;
 
@@ -7,12 +6,12 @@ namespace Database.Entities;
 public class OrderDetail
 {
   //  [ForeignKey(nameof(Order))]
-    public Guid OrderId { get; private set; }
+    public Guid OrderId { get; set; }
 
     public ushort LineNumber { get; set; } 
 
-  //  [ForeignKey(nameof(Product))]
-  //  public int ProductId { get; private set; }
+   // [ForeignKey(nameof(Product))]
+   // public int ProductId { get; private set; }
 
     public uint Quantity { get; set; } 
 
