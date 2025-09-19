@@ -7,7 +7,7 @@ namespace Database.Entities
     {
         public ShopDbContext()         
         {
-          //  Database.EnsureDeleted();
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

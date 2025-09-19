@@ -1,5 +1,4 @@
 ﻿using Database.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace Client
 {
@@ -113,7 +112,7 @@ namespace Client
                 Discount = 5f
             };
 
-            db.Customers.AddRange(customer, customer1, customer2, customer3);   
+            db.Customers.AddRange(customer, customer1, customer2, customer3);
 
             #endregion
 
@@ -198,7 +197,6 @@ namespace Client
 
             #endregion
 
-            #region Loading examples
 
             var man11 = db.Managers.Single(m => m.FirstName == "Joe" && m.LastName == "Travison");
 
@@ -219,85 +217,17 @@ namespace Client
                 }
             };
 
-            db.SaveChanges();
 
-
-            // Eager Loading
-            var ordersWithCustomer = db.Orders
-                .Include(o => o.OrderDetails) 
-                .ThenInclude(od => od.Product)
-                .Include(o => o.Customer)
-                .Where(o => o.Customer != null);
-
-            Console.WriteLine(ordersWithCustomer.ToQueryString());
-
-            foreach (Order o in ordersWithCustomer)
+            try
             {
-                Console.WriteLine(o.Date);       
-                Console.WriteLine(o.Customer.FirstName); 
-                Console.WriteLine(o.GetSum());
-
-                foreach (OrderDetail od in o.OrderDetails) 
-                {
-                    Console.WriteLine(od.Product.Name);
-                }
+                db.SaveChanges();
+                Console.WriteLine("Data has been succesfully created");
+                Console.WriteLine("Please comment Database.EnsureDeleted(); line in ShopDbContext");
             }
-
-            var ordedFirst = db.Orders.First();
-
-            // Explixit loading
-            db.Entry(ordedFirst)
-                .Collection(o => o.OrderDetails)
-                .Query()
-                .Where(od => od.Quantity > 10)
-                .Load();
-
-            db.Entry(ordedFirst)
-               .Reference(o => o.Customer)
-               .Load();
-
-            Console.WriteLine(ordedFirst.Customer.FirstName);
-
-            foreach (OrderDetail od in ordedFirst.OrderDetails)
+            catch (Exception ex)
             {
-                Console.WriteLine(od.Product.Name);
-                Console.WriteLine(od.Quantity);
+                Console.WriteLine(ex.Message);
             }
-
-            var people = db.People.Include(p => p.Address);
-
-            foreach (var personWithAddress in people)
-            {
-                Console.WriteLine($"{personWithAddress.Id} {personWithAddress.FirstName} {personWithAddress.LastName}");
-                if (personWithAddress.Address != null)
-                {
-                    Console.WriteLine($"   Address: {personWithAddress.Address.Street}, {personWithAddress.Address.City}, {personWithAddress.Address.Country}");
-                }
-
-            }
-
-            var managers = db.Managers.Include(p => p.Address);
-
-            Console.WriteLine(managers.ToQueryString());
-
-            foreach (var managerWithAddress in managers)
-            {
-                Console.WriteLine($"{managerWithAddress.FirstName} {managerWithAddress.LastName}");
-                Console.WriteLine(managerWithAddress.Salary);
-            }
-
-            Console.WriteLine("Customers");
-            var customers = db.Customers.Include(p => p.Address);
-
-            Console.WriteLine(customers.ToQueryString());
-
-            foreach (var customerWithAddress in customers)
-            {
-                Console.WriteLine($"{customerWithAddress.FirstName} {customerWithAddress.LastName}");
-                Console.WriteLine(customerWithAddress.Discount);
-            }
-
-            #endregion
         }
     }
 }

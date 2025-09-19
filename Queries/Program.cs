@@ -1,5 +1,6 @@
 ﻿using Database.Entities;
 using Microsoft.EntityFrameworkCore;
+using Queries.Models;
 
 namespace Queries
 {
