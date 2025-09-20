@@ -7,7 +7,7 @@ namespace Database.Entities
     {
         public ShopDbContext()         
         {
-            Database.EnsureDeleted();
+           // Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
@@ -25,7 +25,10 @@ namespace Database.Entities
             //  Fluent API configuration examples duplicated Data Annotations in this project
 
             // modelBuilder.Entity<Order>().Ignore(o => o.Manager);
-            // modelBuilder.Ignore<Manager>();                            
+            // modelBuilder.Ignore<Manager>();
+            // 
+
+            modelBuilder.Entity<Person>().HasQueryFilter(p => p.DateOfBirth < new DateOnly(2007, 1, 1));
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

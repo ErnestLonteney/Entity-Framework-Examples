@@ -9,7 +9,19 @@ namespace Queries
         static void Main()
         {
             using var context = new ShopDbContext();
-            
+
+
+            var adultCustomersFomDnipro = context.Customers //.IgnoreQueryFilters()
+                .Include(c => c.Address)
+                .Where(c => c.Address != null && c.Address.City == "Dnipro");
+
+            Console.WriteLine(adultCustomersFomDnipro.ToQueryString());
+
+            foreach (var customer in adultCustomersFomDnipro)
+            {
+                Console.WriteLine($"{customer.FirstName} {customer.LastName} from {customer.Address?.City}");
+            }
+
             // Filters 
             var products = context.Products
                 .Where(p => (p.Price > 100 && p.Price < 1000) ||

@@ -86,6 +86,7 @@ namespace Client
                 FirstName = "John Doe",
                 Email = "john.doe@outlook.com",
                 Address = address6,
+                DateOfBirth = new DateOnly(1990, 5, 15),    
             };
 
             var customer1 = new Customer()
@@ -93,7 +94,8 @@ namespace Client
                 FirstName = "Andriy",
                 LastName = "Biliy",
                 Address = address3,
-                Discount = 2f
+                Discount = 2f,
+                DateOfBirth = new DateOnly(2005, 7, 23)
             };
 
             var customer2 = new Customer()
@@ -101,7 +103,8 @@ namespace Client
                 FirstName = "Galina",
                 LastName = "Martinova",
                 Address = address4,
-                Discount = 4f
+                Discount = 4f,
+                DateOfBirth = new DateOnly(2010, 11, 03)
             };
 
             var customer3 = new Customer()
@@ -109,7 +112,8 @@ namespace Client
                 FirstName = "Valentina",
                 LastName = "Frolova",
                 Address = address5,
-                Discount = 5f
+                Discount = 5f,
+                DateOfBirth = new DateOnly(2011, 01, 30)
             };
 
             db.Customers.AddRange(customer, customer1, customer2, customer3);

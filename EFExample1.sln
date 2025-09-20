@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queries", "Queries\Queries.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoading", "DataLoading\DataLoading.csproj", "{19D8D039-096B-4977-98C5-592EB0EF9686}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCommands", "SQLCommands\SQLCommands.csproj", "{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{19D8D039-096B-4977-98C5-592EB0EF9686}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19D8D039-096B-4977-98C5-592EB0EF9686}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19D8D039-096B-4977-98C5-592EB0EF9686}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
