@@ -13,7 +13,7 @@ namespace Database.Configurations
             modelBuilder.HasIndex(d => d.Name).IsUnique();
             // 100 - 100
             modelBuilder.HasMany(d => d.Managers).WithMany(m => m.Departments);
-            modelBuilder.Property(d => d.Name).HasMaxLength(300).IsRequired();
+            modelBuilder.Property(d => d.Name).HasMaxLength(500).IsRequired();
         }
     }
 }

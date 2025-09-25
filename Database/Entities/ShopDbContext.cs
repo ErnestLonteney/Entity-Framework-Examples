@@ -8,7 +8,8 @@ namespace Database.Entities
         public ShopDbContext()         
         {
            // Database.EnsureDeleted();
-            Database.EnsureCreated();
+          //  Database.EnsureCreated();
+             Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -48,5 +49,7 @@ namespace Database.Entities
         public DbSet<Manager> Managers { get; set; }  // [SuperUsers]  - because we set the table name in the Manager entity
         public DbSet<Address> Addresses { get; set; }   
         public DbSet<Department> Departments { get; set; }
-    }
+
+        public DbSet<Expence> Expences { get; set; }
+        }
 }
