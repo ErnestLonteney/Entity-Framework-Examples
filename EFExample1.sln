@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoading", "DataLoading\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCommands", "SQLCommands\SQLCommands.csproj", "{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop", "MyShop\MyShop.csproj", "{BB01D644-81C5-4BAA-B8D5-6B073BD241C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{6AE983E3-7130-4F47-BA2B-A1EDED48EE9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F386EA4-A655-4DEB-8A42-DAD06F5B732E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB01D644-81C5-4BAA-B8D5-6B073BD241C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB01D644-81C5-4BAA-B8D5-6B073BD241C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB01D644-81C5-4BAA-B8D5-6B073BD241C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB01D644-81C5-4BAA-B8D5-6B073BD241C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AE983E3-7130-4F47-BA2B-A1EDED48EE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE983E3-7130-4F47-BA2B-A1EDED48EE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE983E3-7130-4F47-BA2B-A1EDED48EE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE983E3-7130-4F47-BA2B-A1EDED48EE9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

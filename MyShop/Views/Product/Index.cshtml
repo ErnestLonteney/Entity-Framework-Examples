@@ -1,0 +1,13 @@
+﻿@using Database.Entities
+@model List<>
+
+
+@foreach (Product product in Model)
+{
+    <div class="product-card">
+        <h2>@product.Name</h2>
+        <p>Price: $@product.Price</p>
+        <p>@product.Description</p>
+    </div>  
+}
+

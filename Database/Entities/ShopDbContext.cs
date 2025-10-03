@@ -5,11 +5,16 @@ namespace Database.Entities
 {
     public class ShopDbContext : DbContext
     {
-        public ShopDbContext()         
+        public ShopDbContext()
         {
-           // Database.EnsureDeleted();
-          //  Database.EnsureCreated();
-             Database.Migrate();
+            // Database.EnsureDeleted();
+            //  Database.EnsureCreated();
+            Database.Migrate();
+        }
+
+        public ShopDbContext(DbContextOptions options)
+            : base(options) 
+        {            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,13 +37,13 @@ namespace Database.Entities
             modelBuilder.Entity<Person>().HasQueryFilter(p => p.DateOfBirth < new DateOnly(2007, 1, 1));
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // Use your connection string here  
-            optionsBuilder
-             //   .UseLazyLoadingProxies()
-                .UseSqlServer("Server=localhost;Database=MyRozetka;Trusted_Connection=True;TrustServerCertificate=true");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    // Use your connection string here  
+        ////    optionsBuilder
+        //     //   .UseLazyLoadingProxies()
+        //      //  .UseSqlServer("Server=localhost;Database=MyRozetka;Trusted_Connection=True;TrustServerCertificate=true");
+        //}
 
         // Our tables in DataBase will be generated from these DbSet properties with the same names
         public DbSet<Product> Products { get; set; } // [Products]  
