@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using MyShop.Models;
 using Services.Interfaces;
 using Services.Models;
 
 namespace MyShop.Controllers
 {
-    public class ProductController(IProductService productService) : Controller
+    public class ProductController(IProductService productService, IMapper mapper) : Controller
     {
         public IActionResult Index()
         {
@@ -25,12 +26,7 @@ namespace MyShop.Controllers
                 return NotFound();
             }
 
-            var productsForView = products.Select(p => new ProductViewModel
-            {
-                Name = p.Name,
-                Description = p.Description,
-                Price = p.Price,
-            }).ToList();
+            var productsForView = mapper.Map<List<ProductViewModel>>(products); 
 
             return View(productsForView);
         }

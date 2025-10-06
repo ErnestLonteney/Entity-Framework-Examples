@@ -1,26 +1,24 @@
-﻿using Database.Entities;
+﻿using AutoMapper;
+using Database.Entities;
 using Services.Interfaces;
 using Services.Models;
 
 namespace Services
 {
-    public class ProductService(ShopDbContext context) : IProductService
+    public class ProductService(ShopDbContext context, IMapper mapper) : IProductService
     {
         public List<ProductModel> GetAllProducts()
         {
-            var products = context.Products.Select(product => new ProductModel
-            {
-                Name = product.Name,
-                Description = product.Description,
-                Price = product.Price,
-            }).ToList();
+            List<Product> products = context.Products.ToList();
 
-            if (products.Count > 100)
+            if (products.Count() > 100)
             {
                 products = products.Take(100).ToList();
             }
 
-            return products;
+           var mappedProducts = mapper.Map<List<ProductModel>>(products);
+
+            return mappedProducts;
         }
     }
 }

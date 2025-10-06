@@ -1,0 +1,16 @@
+﻿@model List<OrderViewModel>
+
+
+@foreach (var order in Model)
+{
+    <div class="order-card">
+        <p>Order Date: @order.Date.ToString("MM/dd/yyyy")</p>
+        <h3>Order Details:</h3>
+        <ul>
+            @foreach (var detail in order.OrderDetails)
+            {
+                <li>@detail.Product.Name - Quantity: @detail.Quantity - Price: $@detail.Product.Price</li>
+            }
+        </ul>
+    </div>
+}
