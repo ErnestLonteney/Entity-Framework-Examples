@@ -11,9 +11,9 @@ namespace Services
         {
             List<Product> products = context.Products.ToList();
 
-            if (products.Count() > 100)
+            if (products.Count() > 10)
             {
-                products = products.Take(100).ToList();
+                products = products.Take(10).ToList();
             }
 
            var mappedProducts = mapper.Map<List<ProductModel>>(products);
