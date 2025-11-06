@@ -52,7 +52,6 @@ namespace Tests.Services
           Assert.Equal(10.0m, products[0].Price);      
         }
 
-
         [Fact]
         public void GetAllProducts_MoreThan10Input_10Products()
         {
